@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology & Learning Watch</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='dashboard.js') }}"
+            defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <div>
+                <span class="eyebrow">PERSONAL LEARNING DASHBOARD</span>
+                <h1>Technology & Learning Watch</h1>
+                <p>Stay curious. Keep learning.</p>
+            </div>
+            <span class="local-label">
+                <span class="status-dot"></span>
+                Local AI
+            </span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="report-toolbar">
+            <div>
+                <h2>Oppimiskatsaus</h2>
+                <p id="report-date">Ladataan raporttia...</p>
+            </div>
+            <div class="report-selector">
+                <label for="report-select">Valitse raportti</label>
+                <select id="report-select" disabled></select>
+            </div>
+        </section>
+
+        <p id="status-message" role="status" aria-live="polite"></p>
+
+        <div id="dashboard" hidden>
+            <section class="stats-grid" aria-label="Raportin tilastot">
+                <div class="stat-card">
+                    <span>Artikkelit</span>
+                    <strong id="article-count">–</strong>
+                    <small>Analysoitua artikkelia</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Tietolähteet</span>
+                    <strong id="source-count">–</strong>
+                    <small>Eri julkaisijaa</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Aihealueet</span>
+                    <strong id="category-count">–</strong>
+                    <small>Teknologian osa-aluetta</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Hyödyllisyys</span>
+                    <strong id="average-rating">–</strong>
+                    <small>Kielimallin arvio, asteikko 1–5</small>
+                </div>
+            </section>
+
+            <section class="distribution-grid">
+                <div class="panel">
+                    <h2>Aihealueiden jakauma</h2>
+                    <div id="category-chart" class="chart"></div>
+                </div>
+
+                <div class="panel">
+                    <h2>Tietolähteet</h2>
+                    <div id="source-chart" class="chart"></div>
+                </div>
+            </section>
+
+            <section class="articles-section">
+                <div class="section-heading">
+                    <h2>Artikkelit ja oppimisehdotukset</h2>
+                    <span id="result-count"></span>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-field search-field">
+                        <label for="search-input">Haku</label>
+                        <input type="search" id="search-input"
+                               placeholder="Hae artikkeleita tai osaamisalueita...">
+                    </div>
+
+                    <div class="filter-field">
+                        <label for="category-filter">Aihealue</label>
+                        <select id="category-filter">
+                            <option value="">Kaikki aihealueet</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-field">
+                        <label for="sort-select">Järjestys</label>
+                        <select id="sort-select">
+                            <option value="default">Raportin järjestys</option>
+                            <option value="rating">Hyödyllisin ensin</option>
+                            <option value="title">Otsikko A–Ö</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="article-list" class="article-list"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Technology & Learning Watch · Python · Flask · LM Studio</p>
+            <small>
+                Analyysit perustuvat RSS-syötteiden kuvauksiin.
+                Tekoälyn tuottama sisältö voi sisältää virheitä.
+                Tarkista tiedot alkuperäisistä lähteistä.
+                Älä suorita raportissa esiintyviä komentoja
+                tarkistamatta niitä ensin.
+            </small>
+        </div>
+    </footer>
+</body>
+</html>
