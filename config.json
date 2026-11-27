@@ -1,0 +1,31 @@
+{
+    "max_articles_per_feed": 3,
+    "max_article_age_days": 14,
+    "feeds": [
+        {
+            "name": "Python Insider",
+            "category": "Python",
+            "url": "https://blog.python.org/rss.xml"
+        },
+        {
+            "name": "React Blog",
+            "category": "Frontend",
+            "url": "https://react.dev/rss.xml"
+        },
+        {
+            "name": "Simon Willison",
+            "category": "Artificial Intelligence",
+            "url": "https://simonwillison.net/atom/everything/"
+        },
+        {
+            "name": "GitHub Blog",
+            "category": "Software Development",
+            "url": "https://github.blog/feed/"
+        },
+        {
+            "name": "Mozilla Hacks",
+            "category": "Web Development",
+            "url": "https://hacks.mozilla.org/feed/"
+        }
+    ]
+}
