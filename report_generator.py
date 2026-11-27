@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -83,4 +84,28 @@ def generate_report(articles):
         encoding="utf-8"
     )
 
+    json_path = report_path.with_suffix(".json")
+
+    report_data = {
+        "created_at": now.isoformat(),
+        "article_count": len(articles),
+        "articles": [
+            {
+                "title": article["title"],
+                "source": article["source"],
+                "category": article["category"],
+                "published": article["published"],
+                "analysis": article["analysis"],
+                "url": safe_article_url(article["url"])
+            }
+            for article in articles
+        ]
+    }
+
+    json_path.write_text(
+        json.dumps(report_data, ensure_ascii=False, indent=4),
+        encoding="utf-8"
+    )
+
     return report_path
+
