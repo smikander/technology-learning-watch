@@ -258,11 +258,13 @@ input::placeholder {
 .article-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+    align-items: stretch;
     gap: 1rem;
 }
 
 .article-card {
+    display: flex;
+    flex-direction: column;
     padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -347,6 +349,7 @@ input::placeholder {
     font-size: .9rem;
     font-weight: 600;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .detail-block {
@@ -370,7 +373,7 @@ input::placeholder {
 
 .article-link {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: auto;
     color: var(--primary);
     font-size: .85rem;
     text-underline-offset: 4px;
